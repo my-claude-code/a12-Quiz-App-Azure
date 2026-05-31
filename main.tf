@@ -157,11 +157,12 @@ resource "azurerm_postgresql_flexible_server" "db" {
   version                = "16"
   delegated_subnet_id    = azurerm_subnet.postgres.id
   private_dns_zone_id    = azurerm_private_dns_zone.postgres.id
-  administrator_login    = "quizadmin"
-  administrator_password = var.db_password
-  zone                   = "1"
-  storage_mb             = 32768
-  sku_name               = "B_Standard_B1ms"
+  administrator_login           = "quizadmin"
+  administrator_password        = var.db_password
+  zone                          = "1"
+  storage_mb                    = 32768
+  sku_name                      = "B_Standard_B1ms"
+  public_network_access_enabled = false
 
   depends_on = [azurerm_private_dns_zone_virtual_network_link.postgres]
 }
