@@ -2,7 +2,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "= 3.116.0"
+      version = "~> 4.0"
     }
     random = {
       source  = "hashicorp/random"
@@ -165,9 +165,12 @@ resource "azurerm_postgresql_flexible_server" "db" {
   private_dns_zone_id    = azurerm_private_dns_zone.postgres.id
   administrator_login           = "quizadmin"
   administrator_password        = var.db_password
-  storage_mb                    = 32768
   sku_name                      = "B_Standard_B1ms"
   public_network_access_enabled = false
+
+  storage {
+    size_gb = 32
+  }
 
   depends_on = [azurerm_private_dns_zone_virtual_network_link.postgres]
 }
