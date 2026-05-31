@@ -1,0 +1,12 @@
+# Copy this file to terraform.tfvars and fill in all values.
+# terraform.tfvars is gitignored — it will never be committed.
+
+subscription_id     = "your-azure-subscription-id"
+entra_tenant_id     = "your-entra-tenant-id"
+entra_client_id     = "your-entra-client-id"
+entra_client_secret = "your-entra-client-secret"
+
+admin_username  = "ivansto"
+admin_password  = "your-vm-admin-password"
+flask_secret_key = "your-flask-secret-key"
+db_password     = "your-postgres-password"
