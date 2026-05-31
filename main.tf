@@ -166,11 +166,8 @@ resource "azurerm_postgresql_flexible_server" "db" {
   administrator_login           = "quizadmin"
   administrator_password        = var.db_password
   sku_name                      = "B_Standard_B1ms"
+  storage_mb                    = 32768
   public_network_access_enabled = false
-
-  storage {
-    size_gb = 32
-  }
 
   depends_on = [azurerm_private_dns_zone_virtual_network_link.postgres]
 }
